@@ -17,21 +17,28 @@
             display: grid;
             place-items: center;
             font-family: 'Montserrat', sans-serif;
-            background: 
-                /* linear-gradient(to right, #000 80%, #111e, #000),
-                linear-gradient(to bottom, #fff, #111 80%, #fff) */
-                linear-gradient(70deg, #000000, #000000, #000000cc, #000000cc, #000000, #000),
-                linear-gradient(10deg, #ccc, #444, #aaa, #000)
-            ;
             height: 100vh;
+            color: hsl(0,0%,20%);
+            background: hsl(0,0%,80%);
+            animation: loopa 14s infinite, loopb 20s infinite;
         }
         h1 {
             font-size: 15vw;
-            color: #222;
             filter: blur(3px);
         }
         span {
             letter-spacing: -5.5vw;
+        }
+
+        @keyframes loopa {
+            0% { color: hsl(0,0%,20%); }
+            50% { color: hsl(0,0%,100%); }
+            100% { color: hsl(0,0%,20%); }
+        }
+        @keyframes loopb {
+            0% { background: hsl(0,0%,0%); }
+            50% { background: hsl(0,0%,80%); }
+            100% { background: hsl(0,0%,0%); }
         }
     </style>
 </body>
