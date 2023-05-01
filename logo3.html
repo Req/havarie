@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet"> 
+    <title>Document</title>
+</head>
+<body>
+    <h1><span class="r1">H<span class="shift">A</span>V </span>
+        <span class="r2">ARIE</span>
+    </h1>
+
+    <h1><span class="r1">H<span class="shift">A</span>V </span>
+        <span class="r2">ARIE</span>
+    </h1>
+
+    <h1><span class="r1">H<span class="shift">A</span>V </span>
+        <span class="r2">ARIE</span>
+    </h1>
+
+    <h1><span class="r1">H<span class="shift">A</span>V </span>
+        <span class="r2">ARIE</span>
+    </h1>
+
+    <h1><span class="r1">H<span class="shift">A</span>V </span>
+        <span class="r2">ARIE</span>
+    </h1>
+
+    <div class="box">
+        <h1><span class="r1">H<span class="shift">A</span>V </span>
+            <span class="r2">ARIE</span>
+        </h1>
+    </div>
+    <div class="filler">
+-
+    </div>
+    <style>
+        body {
+            display: grid;
+            place-items: center;
+            font-family: 'Montserrat', sans-serif;
+            height: 100vh;
+            color: hsl(255,70%,100%);
+            background: hsl(0,0%,0%);
+        }
+
+        .r2 {
+            font-size: 15vw;
+            letter-spacing: -0.5vw;
+        }
+        h1 > span { display:block; }
+        .shift {
+            letter-spacing: -10.7vw;
+        }
+
+        h1 {
+            /* transform: skew(10deg, 5deg); */
+            line-height: 0.7em;
+            padding: 0.5em;
+            text-align: center;
+            border: 1.4vw solid;
+            font-size: 20vw;
+            color: #fff;
+            background-image: url(./flug.jpg);
+            background-repeat:  no-repeat;
+            background-size: 120vw;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0px 33px 5px white;
+        }
+
+        h1:nth-of-type(2){filter:blur(1px)}
+        h1:nth-of-type(3){filter:blur(2px)}
+        h1:nth-of-type(4){filter:blur(3px)}
+        h1:nth-of-type(5){border:0;filter:blur(4px)}
+
+        .box {
+            border: 1.4vw solid;
+        }
+        .box h1 {border: 0; filter: blur(4px)}
+        .filler {
+            color:black;
+            height: 300px;
+        }
+    </style>
+</body>
+</html>
