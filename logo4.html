@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet"> 
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1 class="logo">
+            <span class="r1">
+                H<span class="shift">A</span>V
+            </span>
+            <span class="r2">ARIE</span>
+        </h1>
+        <div class="logo">
+            <span class="r1">
+                H<span class="shift">A</span>V
+            </span>
+            <span class="r2">ARIE</span>
+        </div>
+    </header>
+    <div class="controls">
+        <button class="a">Randomize</button>
+        <p>Values: <span class="aval"></span></p> 
+    </div>
+    <script>
+        let valuesFirst = "polygon(0 41%, 74% 41%, 100% 100%, 28% 100%)"
+        let valuesSecond = "polygon(0 0, 78% 0, 100% 100%, 28% 100%);"
+
+        function x(n=100){
+            return Math.round(Math.random()*n)
+        }
+
+        document.querySelector(".a").addEventListener("click", () => {
+            let val = ""
+            for(let i = x(5)+4;--i;) {
+                if (i==1) {
+                    val += `${x()}% ${x()}%,`
+                } else {
+                    val += `${x()}% ${x()}%,`
+                }
+            }
+            val = val.slice(0,-1)
+            valuesFirst = `polygon(${val})`
+            console.log(valuesFirst)
+            render()
+        })
+
+        const first = document.querySelector("h1.logo")
+        const second = document.querySelector("div.logo")
+        const vals = document.querySelector(".aval")
+        function render() {
+            first.style.clipPath = valuesFirst
+            second.style.clipPath = valuesSecond
+            vals.innerText = valuesFirst
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: hsl(255,70%,100%);
+            background: hsl(0,0%,0%);
+        }
+
+        .controls {
+            display: block;
+        }
+
+        header {
+            height: 23em;
+
+        }
+
+        h1.logo {
+            color: lightpink;
+            left: .03em;
+            top: .03em;
+            clip-path: polygon(0 41%, 74% 41%, 100% 100%, 28% 100%);
+            background-clip: unset;
+            -webkit-background-clip: unset;
+            -webkit-text-fill-color: unset;
+        }
+        div.logo {
+            clip-path: polygon(0 0, 78% 0, 100% 100%, 28% 100%);
+        }
+        .logo {
+            all: unset;
+            position: absolute;
+            display: block;
+            left: 0;
+            top: 0;
+            /* transform: skew(10deg, 5deg); */
+            line-height: 0.7em;
+            padding: .8em;
+            text-align: center;
+            border: .1em solid;
+            font-size: 6em;
+            color: #fff;
+            background-image: url(./flug.jpg);
+            background-repeat: no-repeat;
+            background-size: 6em;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .logo .r2 {
+            font-size: .8em;
+            letter-spacing: -0.5vw;
+        }
+        .logo > span { display:block; }
+        .logo .shift {
+            letter-spacing: -0.51em;
+        }
+
+
+
+
+        .filler {
+            color: black;
+            height: 300px;
+        }
+    </style>
+</body>
+</html>
