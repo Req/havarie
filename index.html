@@ -26,12 +26,10 @@
                 <span class="r2">ARIE</span>
             </div>
         </header>
-        <main>
-            <nav>
-                <a href="https://havarie-band.bandcap.com/">BANDCAMP</a>
-                <a href="https://www.instagram.com/havarie.band/">INSTAGRAM</a>
-            </nav>
-        </main>
+        <nav>
+            <a href="https://havarie-band.bandcap.com/">BANDCAMP</a>
+            <a href="https://www.instagram.com/havarie.band/">INSTAGRAM</a>
+        </nav>
         <script>
             let valuesFirst = "polygon(0 41%, 74% 41%, 100% 100%, 28% 100%)"
 
@@ -58,38 +56,36 @@
                 font-family: 'Montserrat', sans-serif;
                 color: hsl(255, 70%, 100%);
                 background: hsl(0, 0%, 0%);
+                min-width: 360px;
             }
 
             header {
-                height: 23em;
-                display: grid;
-                place-items: center;
+                height: 25em;
             }
 
             /* Lovingly handcrafted <3 */
             h1.logo {
                 color: lightpink;
-                padding-top: .82em;
-                padding-left: .82em;
+                top: 2.3%;
+                left: 50.3%;
                 clip-path: polygon(0 41%, 74% 41%, 100% 100%, 28% 100%);
                 background-clip: unset;
                 -webkit-background-clip: unset;
                 -webkit-text-fill-color: unset;
             }
 
-            div.logo {
-                clip-path: polygon(0 0, 78% 0, 100% 100%, 28% 100%);
-            }
-
             .logo {
                 all: unset;
                 position: absolute;
+                left: 50%;
+                top: 2%;
+                left: 50%;
+                transform: translateX(-50%);
                 display: block;
-                top: 0;
                 line-height: 0.7em;
-                padding: .8em;
+                padding: .4em;
                 text-align: center;
-                font-size: 6em;
+                font-size: 8em;
                 color: #fff;
                 background-image: url(./flug.jpg); /** TODO: Optimize image size **/
                 background-repeat: no-repeat;
@@ -112,11 +108,12 @@
                 letter-spacing: -0.51em;
             }
 
-            main {
+            nav {
                 text-align: center;
             }
 
             a {
+                font-size: 1.5em;
                 color: inherit;
                 text-decoration: none;
                 padding: .3em;
