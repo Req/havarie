@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+        <title>Havarie</title>
+    </head>
+
+    <body>
+        <header>
+            <div class="logo logo1">
+                <span class="r1"></span>
+            </div>
+            <div class="logo logo3">
+                <span class="r1"></span>
+            </div>
+            <div class="logo logo2">
+                <span class="r1"></span>
+            </div>
+        </header>
+        <input type="text" id="input">
+        <button id="refresh">Refresh</button>
+        <button id="toggle">Toggle bg</button>
+        <button id="toggle2">Toggle bg position</button>
+        <script>
+            let valuesFirst = "polygon(0 41%, 74% 41%, 100% 100%, 28% 100%)"
+
+            function x(n = 100) {
+                return Math.round(Math.random() * n)
+            }
+
+            function render(something) {
+                const spans = document.querySelectorAll(".logo span")
+                spans.forEach(span => span.innerText = something)
+                let val = ""
+                for (let i = x(6) + 3; --i;) {
+                    if (i == 1) {
+                        val += `${x()}% ${x()}%,`
+                    } else {
+                        val += `${x()}% ${x()}%,`
+                    }
+                }
+                val = val.slice(0, -1)
+                valuesFirst = `polygon(${val})`
+                console.log(valuesFirst)
+                const logo = document.querySelector(".logo2")
+                logo.style.clipPath = valuesFirst
+            }
+
+            const input = document.querySelector("#input")
+            input.addEventListener("input", e => {
+                localStorage.setItem("inputval", e.target.value)
+                render(e.target.value)
+            })
+
+            const refresh = document.querySelector("#refresh")
+            const toggle = document.querySelector("#toggle")
+            const toggle2 = document.querySelector("#toggle2")
+
+            refresh.addEventListener("click", () => render(input.value))
+            toggle.addEventListener("click", () => {
+                document.querySelector(".logo1").classList.toggle("bg")
+            })
+            toggle2.addEventListener("click", () => {
+                const pos = `${x(80)}%`
+                console.log(pos)
+                window.pos=document.querySelector(".logo1").style
+                console.log(window.pos)
+                document.querySelector(".logo1").style.backgroundPositionY = pos;
+            })
+
+            const inputval = localStorage.getItem("inputval") || "Decline"
+            input.value = inputval
+            render(inputval)
+        </script>
+        <style>
+            body {
+                font-family: 'Montserrat', sans-serif;
+                color: hsl(255, 70%, 100%);
+                background: hsl(0, 0%, 0%);
+                min-width: 360px;
+            }
+
+            .buttons {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+            }
+
+
+            /* Lovingly handcrafted <3 */
+            .logo {
+                position: absolute;
+                font-size: 14vw;
+                top: 12.3%;
+                left: 10.3%;
+            }
+            .logo1 {
+                background-image: url(./cover.jpeg); /** TODO: Optimize image size **/
+                background-repeat: no-repeat;
+                background-position: 52% 40%;
+                background-size: 17em;
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            .bg {
+                background-clip: initial;
+                -webkit-background-clip: initial;
+                -webkit-text-fill-color: initial;
+            }
+            .logo2 {
+                top: 12.5%;
+                left: 10.5%;
+                color: black;
+                background-image: linear-gradient(red,purple,red);
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                text-decoration: line-through;
+                text-decoration-style: wavy;
+                rotate: 2deg;
+            }
+            .logo3 {
+                color: white;
+                top: 12.5%;
+                left: 10%;
+                z-index: -4;
+                clip-path: polygon(0 41%, 74% 41%, 100% 100%, 28% 100%);
+                
+            }
+        </style>
+    </body>
+
+</html>
