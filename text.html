@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+        <title>Havarie</title>
+    </head>
+
+    <body>
+        <header>
+            <div class="logo logo1">
+                <span class="r1"></span>
+            </div>
+            <div class="logo logo3">
+                <span class="r1"></span>
+            </div>
+            <div class="logo logo2">
+                <span class="r1"></span>
+            </div>
+        </header>
+        <input type="text" id="input">
+        <button>x</button>
+        <script>
+            let valuesFirst = "polygon(0 41%, 74% 41%, 100% 100%, 28% 100%)"
+
+            function x(n = 100) {
+                return Math.round(Math.random() * n)
+            }
+
+            function render(something) {
+                const spans = document.querySelectorAll(".logo span")
+                spans.forEach(span => span.innerText = something)
+                let val = ""
+                for (let i = x(6) + 3; --i;) {
+                    if (i == 1) {
+                        val += `${x()}% ${x()}%,`
+                    } else {
+                        val += `${x()}% ${x()}%,`
+                    }
+                }
+                val = val.slice(0, -1)
+                valuesFirst = `polygon(${val})`
+                console.log(valuesFirst)
+                const logo = document.querySelector(".logo2")
+                logo.style.clipPath = valuesFirst
+            }
+
+            const input = document.querySelector("#input")
+            input.addEventListener("input", e => {
+                localStorage.setItem("inputval", e.target.value)
+                render(e.target.value)
+            })
+
+            document.querySelector("button").addEventListener("click", () => {
+                render(input.value)
+            })
+
+            const inputval = localStorage.getItem("inputval") || "Decline"
+            input.value = inputval
+            render(inputval)
+        </script>
+        <style>
+            body {
+                font-family: 'Montserrat', sans-serif;
+                color: hsl(255, 70%, 100%);
+                background: hsl(0, 0%, 0%);
+                min-width: 360px;
+            }
+
+            button { 
+                position: absolute;
+                bottom: 10px;
+                left: 10px;
+            }
+
+            /* Lovingly handcrafted <3 */
+            .logo {
+                position: absolute;
+                font-size: 14vw;
+                top: 2.3%;
+                left: 10.3%;
+            }
+            .logo1 {
+                background-image: url(./flug.jpg); /** TODO: Optimize image size **/
+                background-repeat: no-repeat;
+                background-size: 6em;
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                filter:invert();
+            }
+            .logo2 {
+                top: 2.5%;
+                left: 10.5%;
+                color: black;
+                background-image: linear-gradient(red,purple,red);
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                text-decoration: line-through;
+                text-decoration-style: wavy;
+                rotate: 2deg;
+            }
+            .logo3 {
+                color: white;
+                top: 2.5%;
+                left: 10%;
+                z-index: -4;
+                clip-path: polygon(0 41%, 74% 41%, 100% 100%, 28% 100%);
+                rotate: 3deg;
+                zoom: 105%;
+            }
+        </style>
+    </body>
+
+</html>
