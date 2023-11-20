@@ -16,19 +16,13 @@
                     <linearGradient id="grad" gradientTransform="rotate(90)">
                         <stop offset="0%" stop-color="lightpink" />
                         <stop offset="40%" stop-color="white" />
-                        <stop offset="75%" stop-color="lightpink" />
-                        <stop offset="85%" stop-color="red" />
+                        <stop offset="74%" stop-color="lightpink" />
+                        <stop offset="90%" stop-color="red" />
                     </linearGradient>
                 </defs>
-                <g
-                    style="font-family:Arial;fill:transparent;font-size:48px; transition: all 0.5s ease-in-out;"
-                    stroke-dasharray="1,3,3,7"
-                    stroke="url(#grad)"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-dashoffset="0"
-                    id="woah"
-                >
+                <g style="font-family:Arial;fill:transparent;font-size:48px; transition: all .6s ease-in-out;"
+                    stroke-dasharray="1,3,3,7" stroke="url(#grad)" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-dashoffset="0" id="woah">
                     <text x="3" y="50">HAV</text>
                     <text x="3" y="83" style="font-size:40px;">ARIE</text>
                 </g>
@@ -36,28 +30,12 @@
             <script>
                 const el = document.querySelector("#woah")
                 let n = 0
-                setInterval(()=>{
-                    el.setAttribute("stroke-dashoffset", ++n)
+                setInterval(() => {
+                    n += 2
+                    el.setAttribute("stroke-dashoffset", n)
                 }, 1000)
             </script>
         </div>
-        <style>
-            svg {
-                display: block;
-                width: 320px;
-                height: auto;
-                margin: 2em auto;
-
-                background-clip: text;
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-            }
-            h1{
-                height: 1px;
-                opacity: 0;
-                position: absolute;
-            }
-        </style>
 
         <nav>
             <a href="https://havarie-band.bandcamp.com/">BANDCAMP</a>
@@ -100,6 +78,19 @@
                 padding-bottom: 5em;
             }
 
+            svg {
+                display: block;
+                width: 320px;
+                margin: 2em auto;
+            }
+
+            h1 {
+                height: 1px;
+                opacity: 0;
+                position: absolute;
+            }
+
+
             nav {
                 text-align: center;
             }
@@ -119,12 +110,12 @@
             hr {
                 margin: 3em;
                 border: 0;
-                height: 3px;
+                height: .1em;
                 background: linear-gradient(45deg, #000F, white, lightpink, #000F);
                 border-radius: 50%;
             }
 
-            #gigs h2 {
+            h2 {
                 text-align: center;
                 text-shadow: 1px 1px 0px lightpink;
             }
@@ -139,14 +130,7 @@
                 text-align: center;
                 border-bottom: 0.1em solid lightpink;
                 padding: .5em 1em;
-                line-height: 1.2em;
-                ;
                 font-size: 1.2em;
-                vertical-align: middle;
-            }
-
-            td:first-of-type {
-                text-align: right;
             }
 
             td:last-of-type {
