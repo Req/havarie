@@ -31,9 +31,34 @@
             <a href="https://open.spotify.com/artist/1uR0oWw8uPYlCvBoXhPujA?si=dcb5eb7a9d814874">SPOTIFY</a>
             <a href="https://www.instagram.com/havarie.band/">INSTAGRAM</a>
         </nav>
-        <a href="https://www.facebook.com/events/677412947139891">
-            <img src="soltmann.jpeg" style="width:80%;display:block;margin: 1em auto;max-width:720px;border: .2em solid blue;">
-        </a>
+
+        <hr>
+
+        <section id="gigs">
+            <h2>LIVE UPCOMING</h2>
+            <table>
+                <tr>
+                    <td>01.12.2023</td>
+                    <td>Würzburg</td>
+                    <td>Immerhin</td>
+                </tr>
+            </table>
+
+            <h2>LIVE PAST</h2>
+            <table>
+                <tr>
+                    <td>11.11.2023</td>
+                    <td>Leipzig</td>
+                    <td>Soltmann</td>
+                </tr>
+                <tr>
+                    <td>28.15.2023</td>
+                    <td>Leipzig</td>
+                    <td>Private</td>
+                </tr>
+            </table>
+        </section>
+
         <script>
             let valuesFirst = "polygon(0 41%, 74% 41%, 100% 100%, 28% 100%)"
 
@@ -64,7 +89,7 @@
             }
 
             header {
-                height: 25em;
+                height: 20em;
             }
 
             /* Lovingly handcrafted <3 */
@@ -126,6 +151,38 @@
                 border-left: .1em solid lightpink;
                 border-right: 0em solid white;
                 border-bottom: .1em solid lightpink;
+            }
+
+            hr {
+                margin: 3em;
+                border: 0;
+                height: 3px;
+                background: linear-gradient(45deg, #000F, white, lightpink, #000F );
+                border-radius: 50%;
+            }
+
+            #gigs h2 {
+                text-align: center;
+                text-shadow: 1px 1px 0px lightpink;
+            }
+            table {
+                margin: 0 auto;
+                font-family: monospace;
+                border-collapse: collapse;
+            }
+            td {
+                text-align: center;
+                border-bottom: 0.1em solid lightpink;
+                padding: .5em 1em;
+                line-height: 1.2em;;
+                font-size: 1.2em;
+                vertical-align: middle;
+            }
+            td:first-of-type {
+                text-align: right;
+            }
+            td:last-of-type {
+                text-align: left;
             }
         </style>
     </body>
