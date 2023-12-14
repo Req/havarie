@@ -76,14 +76,8 @@
 
         <section id="gigs">
             <h2>LIVE UPCOMING</h2>
-            <table>
-                <tr>
-                    <td>
-                        <p>No shows planned for now</p>
-                        <p>Contact <a href="mailto:gigs@havarie.band">gigs@havarie.band</a></p>
-                    </td>
-                </tr>
-            </table>
+            <img src="flyer.jpeg">
+            <p><a href="mailto:gigs@havarie.band">gigs@havarie.band</a></p>
 
             <h2>LIVE PAST</h2>
             <table>
@@ -155,6 +149,15 @@
             }
             a {
                 color: lightpink;
+            }
+
+            #gigs p {
+                text-align:center;
+            }
+            #gigs img {
+                display: block;
+                margin: 0 auto;
+                width: clamp(300px, 80%, 550px)
             }
 
             table {
