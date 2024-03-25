@@ -149,28 +149,19 @@
 
         <section id="gigs">
             <h2>LIVE UPCOMING</h2>
-            <table>
-                <tr>
-                    <!-- <td>01.03.2024</td><td>Halle</td> -->
-                </tr>
-                <tr>
-                    <td>22.03.2024</td><td>Würzburg</td>
-                    <td>Kellerperle</td>
-                </tr>
-                <tr>
-                    <td>23.03.2024</td><td>Limbach-Oberfrohna</td>
-                    <td>Doro 40</td>
-                </tr>
-                <tr>
-                    <!-- <td>27.04.2024</td><td>Dessau</td> -->
-                </tr>
-            </table>
-
             <p>Contact <a href="mailto:gigs@havarie.band">gigs@havarie.band</a></p>
 
             <div class="past">
                 <h2>LIVE PAST</h2>
                 <table>
+                    <tr>
+                        <td>23.03.2024</td><td>Limbach-Oberfrohna</td>
+                        <td>Doro 40</td>
+                    </tr>
+                    <tr>
+                        <td>22.03.2024</td><td>Würzburg</td>
+                        <td>Kellerperle</td>
+                    </tr>
                     <tr>
                         <td>22.12.2023</td>
                         <td>Gera</td>
@@ -210,10 +201,9 @@
                 e.innerHTML = `<span>${e.innerHTML}</span>`
             })
 
-
-            document.querySelectorAll("table,tr,p,a,hr,div,a").forEach(e => {
+            document.querySelectorAll("h2,p,a,hr,div,a").forEach(e => {
                 console.log(e)
-                const rotate = Math.round((Math.random()-.5) * 7)
+                const rotate = Math.round((Math.random()-.5) * 8)
                 e.style.rotate = `${rotate}deg`
             })
             document.querySelectorAll("td span").forEach(e => {
@@ -224,7 +214,7 @@
                 const rotate = Math.round((Math.random()-.5) * 2)
                 e.style.rotate = `${rotate}deg`
 
-                const x = Math.round((Math.random()-.5) * 20)
+                const x = Math.round((Math.random()-.5) * 25)
                 const y = Math.round((Math.random()-.5) * 10)
                 e.style.transform = `translateX(${x}px) translateY(${y}px)`
             })
