@@ -13,7 +13,7 @@
                 color: hsl(255, 70%, 100%);
                 background: hsl(0, 0%, 0%);
                 min-width: 360px;
-                padding-bottom: 5em;
+                padding: 0 20px 200px 20px;
 
                 background: radial-gradient(#0f0a0a, black 30%) 10px 10px / 10px 10px;
                 background-attachment: fixed;
@@ -28,6 +28,12 @@
 
             nav {
                 text-align: center;
+            }
+
+            a {
+
+                font-size: 1.5em;
+                color: inherit;
             }
 
             nav a {
@@ -58,7 +64,6 @@
             /* GIGS */
             #gigs {
                 text-align: center;
-                filter: blur(.5px);
             }
 
             #gigs a {
@@ -77,13 +82,16 @@
                 border-collapse: collapse;
                 font-size: 1.2em;
             }
+
             tr:last-of-type td {
                 border-bottom: none;
             }
+
             td {
                 border-bottom: 0.1em solid lightpink;
                 padding: .5em 1em;
             }
+
             p {
                 margin: 3em 0 5em 0;
             }
@@ -93,7 +101,7 @@
             }
 
             /* SVG */
-            svg {
+            #logo {
                 display: block;
                 width: 320px;
                 margin: 2em auto;
@@ -106,6 +114,30 @@
                     0px 2px 0 black,
                     -1px 0px 0 lightpink;
             }
+
+            #booking {
+                display: grid;
+                place-items: center;
+                padding: 10px;
+                text-align: center;
+
+                a {
+                    text-decoration: none;
+                    cursor: pointer;
+                }
+
+                hr { margin: 0;}
+
+                p {
+                    margin: 0;
+                }
+
+                img {
+                    width: 150px;
+                    background: #fff;
+                    border-radius: 50%;
+                }
+            }
         </style>
     </head>
 
@@ -115,7 +147,7 @@
 
             <!-- Lovingly handcrafted artisan DIY web development, isn't it nice? <3 -->
             <!-- github.com/req -->
-            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <svg id="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <linearGradient id="grad" gradientTransform="rotate(115)">
                         <stop offset="2.5%" stop-color="white" />
@@ -150,17 +182,42 @@
 
         <hr>
 
+        <div id="booking">
+            <a href="https://www.instagram.com/frechdachs.booking/">
+                <p>Booking/Live/Gigs</p>
+                <hr>
+                <p>Frechdachs booking</p>
+                <img alt="Frechdachs Booking" src="fd2.svg" />
+            </a>
+        </div>
+
         <section id="gigs">
             <h2>LIVE UPCOMING</h2>
-            <table>
-                <tr>
-                    <td>xx.05.2026</td>
-                    <td>👀</td>
-                    <td>👀</td>
-                </tr>
-            </table>
+            <div>
+                <table>
+                    <tr>
+                        <td>29.05.2026</td>
+                        <td>Karlstadt</td>
+                        <td>
+                            <a target="_blank" href="https://www.openmaibergair.de/">
+                                Open Maiberg Air
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>02.05.2026</td>
+                        <td>Würzburg</td>
+                        <td>👀</td>
+                    </tr>
+                    <tr>
+                        <td>05.09.2026</td>
+                        <td>Leipzig</td>
+                        <td>👀</td>
+                    </tr>
+                </table>
+            </div>
 
-            <p>Contact <a href="mailto:gigs@havarie.band">gigs@havarie.band</a></p>
+            <p><a href="mailto:gigs@havarie.band">gigs@havarie.band</a></p>
 
             <div class="past">
                 <h2>LIVE PAST</h2>
@@ -196,19 +253,23 @@
                         <td>Steintor Schänke</td>
                     </tr>
                     <tr>
-                        <td>13.09.2024</td><td>Leipzig</td>
+                        <td>13.09.2024</td>
+                        <td>Leipzig</td>
                         <td>STÖ</td>
                     </tr>
                     <tr>
-                        <td>10.05.2024</td><td>Friedrichswalde/16247</td>
+                        <td>10.05.2024</td>
+                        <td>Friedrichswalde/16247</td>
                         <td>Hollerhof</td>
                     </tr>
                     <tr>
-                        <td>23.03.2024</td><td>Limbach-Oberfrohna</td>
+                        <td>23.03.2024</td>
+                        <td>Limbach-Oberfrohna</td>
                         <td>Doro 40</td>
                     </tr>
                     <tr>
-                        <td>22.03.2024</td><td>Würzburg</td>
+                        <td>22.03.2024</td>
+                        <td>Würzburg</td>
                         <td>Kellerperle</td>
                     </tr>
                     <tr>
@@ -250,21 +311,21 @@
                 e.innerHTML = `<span>${e.innerHTML}</span>`
             })
 
-            document.querySelectorAll("h2,p,a,hr,div,a").forEach(e => {
+            document.querySelectorAll("h2,p,a,hr,div,a,img").forEach(e => {
                 console.log(e)
-                const rotate = Math.round((Math.random()-.5) * 8)
+                const rotate = Math.round((Math.random() - .5) * 8)
                 e.style.rotate = `${rotate}deg`
             })
             document.querySelectorAll("td span").forEach(e => {
                 e.style.display = "inline-block"
-                const spacing = Math.round((Math.random()-.6) * 6)
+                const spacing = Math.round((Math.random() - .6) * 6) +2
                 e.style.letterSpacing = `${spacing}px`
 
-                const rotate = Math.round((Math.random()-.5) * 2)
+                const rotate = Math.round((Math.random() - .8) * 2)
                 e.style.rotate = `${rotate}deg`
 
-                const x = Math.round((Math.random()-.5) * 25)
-                const y = Math.round((Math.random()-.5) * 10)
+                const x = Math.round((Math.random() - .5) * 25)
+                const y = Math.round((Math.random() - .5) * 10)
                 e.style.transform = `translateX(${x}px) translateY(${y}px)`
             })
         </script>
