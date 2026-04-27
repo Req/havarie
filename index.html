@@ -13,10 +13,10 @@
                 color: hsl(255, 70%, 100%);
                 background: hsl(0, 0%, 0%);
                 min-width: 360px;
-                padding: 0 20px 200px 20px;
+                margin: 0;
+                padding: 0 0px 200px 0px;
 
-                background: radial-gradient(#0f0a0a, black 30%) 10px 10px / 10px 10px;
-                background-attachment: fixed;
+                background: black;
             }
 
             h1 {
@@ -54,6 +54,7 @@
                 height: .1em;
                 background: linear-gradient(45deg, #000F, white, lightpink, #000F);
                 border-radius: 50%;
+                max-width: 80vw;
             }
 
             h2 {
@@ -61,26 +62,32 @@
                 text-shadow: 1px 1px 0px lightpink;
             }
 
+            p {
+                margin: 3em 0 5em 0;
+            }
+
+
             /* GIGS */
             #gigs {
                 text-align: center;
+
+                a {
+                    color: lightpink;
+                }
+                img {
+                    /* Placeholder for next gig poster */
+                    display: block;
+                    margin: 0 auto;
+                    width: clamp(300px, 80%, 550px)
+                }
             }
 
-            #gigs a {
-                color: lightpink;
-            }
-
-            #gigs img {
-                /* Placeholder for next gig poster */
-                display: block;
-                margin: 0 auto;
-                width: clamp(300px, 80%, 550px)
-            }
 
             table {
                 margin: 0 auto;
                 border-collapse: collapse;
                 font-size: 1.2em;
+                max-width: 80vw;
             }
 
             tr:last-of-type td {
@@ -89,11 +96,7 @@
 
             td {
                 border-bottom: 0.1em solid lightpink;
-                padding: .5em 1em;
-            }
-
-            p {
-                margin: 3em 0 5em 0;
+                padding: .2em .5em;
             }
 
             td:last-of-type {
@@ -126,7 +129,7 @@
                     cursor: pointer;
                 }
 
-                hr { margin: 0;}
+                hr { margin: 0; }
 
                 p {
                     margin: 0;
@@ -137,6 +140,15 @@
                     background: #fff;
                     border-radius: 50%;
                 }
+            }
+
+            @media (max-width:900px) {
+                /* * { outline: 1px solid blue; } */
+                body { overflow-x: hidden; }
+                table { width: 75%; border: 3px dashed lightpink; }
+                td { display: block; text-align: center !important; border: none; }
+                tr { border-bottom: 3px dashed lightpink;  padding: 1em; display: block; }
+                tr:last-of-type { border-bottom: none; }
             }
         </style>
     </head>
@@ -165,11 +177,11 @@
                         <stop offset="56%" stop-color="white" />
                     </linearGradient>
                 </defs>
-                <g style="font-family:Arial;fill:transparent;font-size:48px; transition: all .5s ease-in-out;"
+                <g style="font-family:Arial;fill:transparent;font-size:44px; transition: all .5s ease-in-out;"
                     stroke-dasharray="50,20,10,20,10,4" stroke="url(#grad)" stroke-linecap="round"
                     stroke-linejoin="round" stroke-dashoffset="0" id="woah">
                     <text x="3" y="50" id="ds">HAV</text>
-                    <text x="3" y="83" style="font-size:40px;">ARIE</text>
+                    <text x="3" y="83" style="font-size:38px;">ARIE</text>
                 </g>
             </svg>
         </div>
@@ -183,8 +195,9 @@
         <hr>
 
         <div id="booking">
+            <p>Booking/Live/Gigs</p>
+            <p><a href="mailto:gigs@havarie.band">gigs@havarie.band</a></p>
             <a href="https://www.instagram.com/frechdachs.booking/">
-                <p>Booking/Live/Gigs</p>
                 <hr>
                 <p>Frechdachs booking</p>
                 <img alt="Frechdachs Booking" src="fd2.svg" />
@@ -216,8 +229,6 @@
                     </tr>
                 </table>
             </div>
-
-            <p><a href="mailto:gigs@havarie.band">gigs@havarie.band</a></p>
 
             <div class="past">
                 <h2>LIVE PAST</h2>
@@ -307,18 +318,18 @@
             setTimeout(f, 600)
 
             // Select all td elements and wrap their contents into a span
-            document.querySelectorAll("td").forEach(e => {
-                e.innerHTML = `<span>${e.innerHTML}</span>`
-            })
+            // document.querySelectorAll("td").forEach(e => {
+            //     e.innerHTML = `<span>${e.innerHTML}</span>`
+            // })
 
-            document.querySelectorAll("h2,p,a,hr,div,a,img").forEach(e => {
+            document.querySelectorAll("h2,p,a,hr,a,img,tr").forEach(e => {
                 console.log(e)
                 const rotate = Math.round((Math.random() - .5) * 8)
                 e.style.rotate = `${rotate}deg`
             })
-            document.querySelectorAll("td span").forEach(e => {
+            document.querySelectorAll("td").forEach(e => {
                 e.style.display = "inline-block"
-                const spacing = Math.round((Math.random() - .6) * 6) +2
+                const spacing = Math.round((Math.random() - .3) * 6) +1
                 e.style.letterSpacing = `${spacing}px`
 
                 const rotate = Math.round((Math.random() - .8) * 2)
